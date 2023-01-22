@@ -17,13 +17,10 @@ function fibonaccciRecursive(n) {
   const recursion = () => {
     if ( n < 2) {
       return values;
-    } else {
-      values.push(sumTwoPriorNums());
-      console.log(n);
-      n -= 1;
-      recursion(n);
-      return values;
-    }; 
+    }
+    values.push(sumTwoPriorNums());
+    recursion(n -= 1);
+    return values;
   };
   return recursion();
 };
