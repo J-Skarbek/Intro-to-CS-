@@ -19,7 +19,7 @@ function fibonaccciRecursive(n) {
       return values;
     }
     values.push(sumTwoPriorNums());
-    recursion(n -= 1);
+    recursion(n--);
     return values;
   };
   return recursion();

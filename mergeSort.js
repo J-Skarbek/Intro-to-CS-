@@ -26,3 +26,16 @@ const Arr = [
   58
 ];
 
+function mergeSort() {
+  // Arr.sort(compareNumbers);
+  const compareNumbers = (a, b) => a - b;
+
+  // if (Arr.length < 2) {
+  //   console.log(Arr);
+  //   return;
+  // } else {
+
+  // }
+
+  return Arr.sort(compareNumbers);
+}
