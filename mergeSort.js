@@ -1,4 +1,4 @@
-const Arr = [
+const arr = [
   41, 
   42, 
   89, 
@@ -26,16 +26,31 @@ const Arr = [
   58
 ];
 
+const midPoint = () => {
+  if (arr.length % 2 === 0) {
+    const mid = arr.length / 2;
+    return mid;
+  } else if (arr.length % 2 !== 0 ) {
+    const mid = Math.floor(arr.length / 2 + 1);
+    return mid;
+  };
+};
+
+// const leftArray = arr.slice(0, mid)
+// const rightArray = arr.slice(mid)
+
+const compareNumbers = (a, b) => a - b;
+
 function mergeSort() {
-  // Arr.sort(compareNumbers);
-  const compareNumbers = (a, b) => a - b;
-
-  // if (Arr.length < 2) {
-  //   console.log(Arr);
-  //   return;
-  // } else {
-
-  // }
-
-  return Arr.sort(compareNumbers);
+  if (arr.length < 2) {
+    arr.sort(compareNumbers);
+    console.log(arr);
+    return;
+  } else {
+    console.log(midPoint());
+    const leftArray = arr.slice(0, midPoint());
+    const rightArray = arr.slice(midPoint());
+    console.log(leftArray);
+    console.log(rightArray);
+  }
 }
