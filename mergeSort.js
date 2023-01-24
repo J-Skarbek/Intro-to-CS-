@@ -34,20 +34,19 @@ const midPoint = array => {
     const mid = Math.floor(array.length / 2 + 1);
     return mid;
   };
-};
+}
 
 
 function mergeSort(array) {
   if (array.length <= 1) {
     return array;
   }
-  
   const leftArray = array.slice(0, midPoint(array));
   const rightArray = array.slice(midPoint(array));
   return merge(
     mergeSort(leftArray), mergeSort(rightArray)
   );
-};
+}
 
 function merge(leftArray, rightArray) {
   let resultArray = [];
@@ -62,7 +61,7 @@ function merge(leftArray, rightArray) {
       resultArray.push(rightArray[rightIndex]);
       rightIndex++;
     }
-  }
+  };
   return resultArray
           .concat(leftArray.slice(leftIndex))
           .concat(rightArray.slice(rightIndex));
