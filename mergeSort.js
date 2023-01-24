@@ -26,31 +26,44 @@ const arr = [
   58
 ];
 
-const midPoint = () => {
-  if (arr.length % 2 === 0) {
-    const mid = arr.length / 2;
+const midPoint = array => {
+  if (array.length % 2 === 0) {
+    const mid = array.length / 2;
     return mid;
-  } else if (arr.length % 2 !== 0 ) {
-    const mid = Math.floor(arr.length / 2 + 1);
+  } else if (array.length % 2 !== 0 ) {
+    const mid = Math.floor(array.length / 2 + 1);
     return mid;
   };
 };
 
-// const leftArray = arr.slice(0, mid)
-// const rightArray = arr.slice(mid)
 
-const compareNumbers = (a, b) => a - b;
-
-function mergeSort() {
-  if (arr.length < 2) {
-    arr.sort(compareNumbers);
-    console.log(arr);
-    return;
-  } else {
-    console.log(midPoint());
-    const leftArray = arr.slice(0, midPoint());
-    const rightArray = arr.slice(midPoint());
-    console.log(leftArray);
-    console.log(rightArray);
+function mergeSort(array) {
+  if (array.length <= 1) {
+    return array;
   }
+  
+  const leftArray = array.slice(0, midPoint(array));
+  const rightArray = array.slice(midPoint(array));
+  return merge(
+    mergeSort(leftArray), mergeSort(rightArray)
+  );
+};
+
+function merge(leftArray, rightArray) {
+  let resultArray = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < leftArray.length && rightIndex < rightArray.length) {
+    if (leftArray[leftIndex] < rightArray[rightIndex]) {
+      resultArray.push(leftArray[leftIndex]);
+      leftIndex++;
+    } else {
+      resultArray.push(rightArray[rightIndex]);
+      rightIndex++;
+    }
+  }
+  return resultArray
+          .concat(leftArray.slice(leftIndex))
+          .concat(rightArray.slice(rightIndex));
 }
