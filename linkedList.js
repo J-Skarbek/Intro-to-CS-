@@ -46,8 +46,7 @@ const LinkedList = title => {
     console.log(`get values from this.head: ${this.head}`);
     console.log(`get values from HEAD: ${this.head.value()}`);
     console.log(`get 'next' values from HEAD: ${this.head.next()}`);
-    // return head;
-  };
+  }
 
   //Adds a node to the end of the linked list
   const append = newNode => {
@@ -57,12 +56,27 @@ const LinkedList = title => {
     while (tmp.next() !== null) tmp = tmp.next();
     tmp.next() = Node(newNode, null);
 
-  };
+  }
 
-  //Traverses the linked list, stopping at the tail/node.next === null
   function find() {
-    console.log(`${this.head.value}, + ${this.head.next}`);
-    while (this.head.next() != null) head = head.next();
+    let n = this.head;
+    console.log(typeof n, n.value(), n.next());
+    while (n != null) {
+      console.log(`before: ${n.value()}`);
+      n = n.next();
+    }
+    console.log(`after: ${n.value()}`, typeof n);
+
+    // const testValidity = () => {
+    //   if (n = null) {
+    //     console.log(n.value());
+    //     return n;
+    //   } else {
+    //     console.log(n.value());
+    //     n = n.next();
+    //     testValidity();
+    //   }
+    // }
   }
 
   // const tail = () => {
@@ -71,7 +85,9 @@ const LinkedList = title => {
   //   }
   // }
 
-
+  function getTheHead(){
+    return this.head;
+  }
 
   const size = () => (length > 0) ? length : console.log(`The length of the linked list is ${length}`);
 
@@ -88,10 +104,31 @@ const LinkedList = title => {
 };
 
 const Node = (name, nextNode) => {
+
+  function getValue() {
+    if (name != null && name != undefined) {
+      return name;
+    } else {
+      return null;
+    }
+  }
+
+  function getNextPointer() {
+    if (nextNode != null && nextNode != undefined) {
+      return nextNode.value();
+    } else {
+      return null;
+    }
+  }
+
+  const testfunction = getValue();
+  const testFunction2 = getNextPointer();
   const value = () => (name != null && name != undefined) ? name :  null;
   const next = () => (nextNode != null && nextNode != undefined) ? nextNode.value() : null;
   return {
     value,
     next,
+    testfunction,
+    testFunction2,
   }
 }
