@@ -23,7 +23,13 @@ const LinkedList = title => {
 
   const sampleMethod = () => console.log('testing');
 
-  const append = value => {};
+  const append = value => {
+    const newNode = Node(value);
+    length++;
+    console.log(newNode.value());
+    console.log(length)
+    return newNode;
+  };
 
   const prepend = value => {};
 
@@ -32,6 +38,7 @@ const LinkedList = title => {
   return {
     HEAD,
     sampleMethod,
+    append,
     size,
   };
 };
