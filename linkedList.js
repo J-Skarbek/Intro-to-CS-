@@ -39,12 +39,13 @@ const LinkedList = title => {
 
   //Adds an new node to the beginnning of the linked list
   function prepend(newNode) {
-    head = Node(newNode, head);
+    this.head = Node(newNode, this.head);
     length++;
     console.log(`prepend node length after operation ${length}`);
     console.log(`new node function: ${newNode}`);
-    console.log(`get values from HEAD: ${head.value()}`);
-    console.log(`get 'next' values from HEAD: ${head.next()}`);
+    console.log(`get values from this.head: ${this.head}`);
+    console.log(`get values from HEAD: ${this.head.value()}`);
+    console.log(`get 'next' values from HEAD: ${this.head.next()}`);
     // return head;
   };
 
@@ -60,9 +61,8 @@ const LinkedList = title => {
 
   //Traverses the linked list, stopping at the tail/node.next === null
   function find() {
-    let tmp = Node('tmp');
-    tmp = head;
-    while (tmp !== null) tmp = tmp.next();
+    console.log(`${this.head.value}, + ${this.head.next}`);
+    while (this.head.next() != null) head = head.next();
   }
 
   // const tail = () => {
@@ -82,6 +82,7 @@ const LinkedList = title => {
     prepend,
     size,
     find,
+    length,
     // tail,
   };
 };
