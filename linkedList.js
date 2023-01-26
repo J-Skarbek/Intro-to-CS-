@@ -16,24 +16,31 @@ const fourtyFive = [
  'soulja boy'
 ];
 
-const LinkedList = () => {
+const LinkedList = title => {
+
+  let HEAD = null;
+  let length = 0;
+
   const sampleMethod = () => console.log('testing');
 
   const append = value => {};
 
   const prepend = value => {};
 
-  const size = () => {
-    let nodes = 0;
-    
-  }
+  const size = () => (length > 0) ? length : console.log(`The length of the linked list is ${length}`);
 
   return {
-    sampleMethod
+    HEAD,
+    sampleMethod,
+    size,
   };
 };
 
-const Node = () => {
-  const value = () => null;
-  const nextNode = null;
+const Node = (name, nextNode) => {
+  const value = () => (name != null && name != undefined) ? name :  null;
+  const pointer = () => (nextNode != null && nextNode != undefined) ? nextNode : null;
+  return {
+    value,
+    pointer,
+  }
 }
