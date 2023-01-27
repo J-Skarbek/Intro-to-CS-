@@ -1,21 +1,3 @@
-const fourtyFive = [
- 'lil wayne',
- 'drake',
- 'nikki minage',
- 'childish gambino',
- 'two chainz',
- 'mac dre',
- 'emeniem',
- 'jay-z',
- 'rick ross',
- 'future',
- 'travis scott',
- 'timbaland',
- 'migos',
- 'rich boy',
- 'soulja boy'
-];
-
 const LinkedList = title => {
 
   let head = null;
@@ -62,21 +44,9 @@ const LinkedList = title => {
     let n = this.head;
     console.log(typeof n, n.value(), n.next());
     while (n != null) {
-      console.log(`before: ${n.value()}`);
+      console.log(`before: ${n.testfunction}`);
       n = n.testFunctionTwo;
-    }
-    // console.log(`after: ${n.value()}`, typeof n);
-
-    // const testValidity = () => {
-    //   if (n = null) {
-    //     console.log(n.value());
-    //     return n;
-    //   } else {
-    //     console.log(n.value());
-    //     n = n.next();
-    //     testValidity();
-    //   }
-    // }
+    };
   }
 
   // const tail = () => {
@@ -100,8 +70,8 @@ const LinkedList = title => {
     find,
     length,
     // tail,
-  };
-};
+  }
+}
 
 const Node = (name, nextNode) => {
 
