@@ -31,20 +31,28 @@ const LinkedList = title => {
   }
 
   //Adds a node to the end of the linked list
-  const append = newNode => {
-    if (head === null) prepend(newNode);
-    let tmp = Node('tmp', null);
-    tmp = head;
-    while (tmp.next() !== null) tmp = tmp.next();
-    tmp.next() = Node(newNode, null);
-
+  function append(newNode) {
+    if (this.head == null) {
+      prepend(newNode);
+    } else {
+      let node = Node(newNode, null);
+      let n = this.head;
+      while (n.testFunctionTwo !== null) {
+        console.log(n.testfunction);
+        n = n.testFunctionTwo;
+        console.log(n + ' second test');
+      };
+      n.testfunctionTwo = node;
+      console.log(n.testfunctionTwo, n.testfunction)
+    };
   }
 
+  //Traverses the linked list and console log's the found values of each item 
   function find() {
     let n = this.head;
     console.log(typeof n, n.value(), n.next());
     while (n != null) {
-      console.log(`before: ${n.testfunction}`);
+      console.log(`Linked List Item: ${n.testfunction}`);
       n = n.testFunctionTwo;
     };
   }
