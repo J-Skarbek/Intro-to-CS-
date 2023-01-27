@@ -63,9 +63,9 @@ const LinkedList = title => {
     console.log(typeof n, n.value(), n.next());
     while (n != null) {
       console.log(`before: ${n.value()}`);
-      n = n.next();
+      n = n.testFunctionTwo;
     }
-    console.log(`after: ${n.value()}`, typeof n);
+    // console.log(`after: ${n.value()}`, typeof n);
 
     // const testValidity = () => {
     //   if (n = null) {
@@ -115,20 +115,20 @@ const Node = (name, nextNode) => {
 
   function getNextPointer() {
     if (nextNode != null && nextNode != undefined) {
-      return nextNode.value();
+      return nextNode;
     } else {
       return null;
     }
   }
 
   const testfunction = getValue();
-  const testFunction2 = getNextPointer();
+  const testFunctionTwo = getNextPointer();
   const value = () => (name != null && name != undefined) ? name :  null;
   const next = () => (nextNode != null && nextNode != undefined) ? nextNode.value() : null;
   return {
     value,
     next,
     testfunction,
-    testFunction2,
+    testFunctionTwo,
   }
 }
