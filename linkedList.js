@@ -17,9 +17,7 @@ const LinkedList = title => {
 
   //Adds a node to the end of the linked list
   function append(newNode) {
-    if (this.head == null) {
-      return prepend(newNode);
-    }
+    if (this.head == null) this.head = Node(newNode, this.head);
     let node = Node(newNode, null);
     let tail = this.head;
     while (tail.testFunctionTwo != null) {
