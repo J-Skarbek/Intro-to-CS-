@@ -7,7 +7,7 @@ const LinkedList = title => {
   //Adds an new node to the beginnning of the linked list
   function prepend(newNode) {
     this.head = Node(newNode, this.head);
-    length++;
+    // length++;
     console.log(`prepend node length after operation ${length}`);
     console.log(`new node function: ${newNode}`);
     console.log(`get values from this.head: ${this.head}`);
@@ -40,7 +40,14 @@ const LinkedList = title => {
     return this.head;
   }
 
-  const size = () => (length > 0) ? length : console.log(`The length of the linked list is ${length}`);
+ function size() {
+    let sizeCounter = this.head;
+    while (sizeCounter != null) {
+      this.length += 1;
+      console.log(`The length of the linked list is ${this.length}`);
+      sizeCounter = sizeCounter.testFunctionTwo;
+    };
+  }
 
   return {
     head,
