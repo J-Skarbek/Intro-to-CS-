@@ -36,17 +36,27 @@ const LinkedList = title => {
     };
   }
 
-  function getTheHead(){
-    return this.head;
+  function getTheHead() {
+    this.head != null ? console.log(this.head) : console.log('There is no head/nothing in list.');
+  }
+
+  function getTheTail() {
+    if (this.head == null) console.log('There is no head/nothing in list.');
+    let tailFinder = this.head;
+    while (tailFinder != null) {
+      tailFinder = tailFinder.testFunctionTwo;
+      console.log(tailFinder)
+    }
+    //  console.log(tailFinder.testfunction);
   }
 
  function size() {
     let sizeCounter = this.head;
     while (sizeCounter != null) {
       this.length += 1;
-      console.log(`The length of the linked list is ${this.length}`);
       sizeCounter = sizeCounter.testFunctionTwo;
     };
+    console.log(`The length of the linked list is ${this.length}`);
   }
 
   return {
@@ -57,6 +67,8 @@ const LinkedList = title => {
     size,
     find,
     length,
+    getTheHead,
+    getTheTail,
   }
 }
 
