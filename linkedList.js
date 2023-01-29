@@ -74,21 +74,22 @@ const LinkedList = title => {
     };
   }
 
-  //Works to find/return an index key based on value input
+ //Works to find/return an index key based on value input
   function searchAt(value) {
     let searchHead = this.head;
-    let searchCounter = 0;
+    // let numberOfNodes = this.size();
     let searchIndex = 0;
+    // let searchValue = 0;
     if (searchHead == null) console.log('The list is empty');
     while (searchHead !== null) {
       if (searchHead.testfunction === value) {
         return searchIndex;
       };
-      console.log(searchCounter);
-      searchCounter = searchIndex;
-      searchCounter++;
+      // searchValue = searchIndex++;
+      searchIndex++;
       searchHead = searchHead.testFunctionTwo;
     };
+    // if (numberOfNodes === searchIndex) console.log('no more nodes');
     return searchIndex;
   }
 
