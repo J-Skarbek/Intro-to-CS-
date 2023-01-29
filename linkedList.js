@@ -78,6 +78,19 @@ const LinkedList = title => {
     return searchAt(tempHead.testfunction, key);
   }
 
+  function pop() {
+    let getSecondLastNode = this.head;
+    if (getSecondLastNode == null) {
+      console.log('Nothing to be removed');
+    } else if (getSecondLastNode.testFunctionTwo == null) {
+      console.log('There\'s only one item in the list, cannot be removed with pop() function.');
+    };
+    while (getSecondLastNode.testFunctionTwo.testFunctionTwo !== null) {
+      getSecondLastNode = getSecondLastNode.testFunctionTwo;
+    };
+    getSecondLastNode.testFunctionTwo = null;
+  }
+
   return {
     head,
     sampleMethod,
@@ -90,6 +103,7 @@ const LinkedList = title => {
     getTheTail,
     searchAt,
     indexAt,
+    pop,
   }
 }
 
