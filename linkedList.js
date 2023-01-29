@@ -91,6 +91,17 @@ const LinkedList = title => {
     getSecondLastNode.testFunctionTwo = null;
   }
 
+  function contains(value) {
+    let searchNode = this.head;
+    if (searchNode == null) console.log('There aren\'t any nodes to search.');
+    while (searchNode !== null) {
+      if (searchNode.testfunction === value) {
+        console.log(`Found a match, located ${searchNode.testfunction}`);
+      };
+    searchNode = searchNode.testFunctionTwo;
+    };
+  }
+
   return {
     head,
     sampleMethod,
@@ -104,6 +115,7 @@ const LinkedList = title => {
     searchAt,
     indexAt,
     pop,
+    contains,
   }
 }
 
