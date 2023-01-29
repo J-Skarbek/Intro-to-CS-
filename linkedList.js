@@ -61,6 +61,7 @@ const LinkedList = title => {
     return listSize;
   }
 
+  //Works to find/return a value in the list based on an index key
   function indexAt(index) {
     let currentNode = this.head;
     let count = 0;
@@ -73,12 +74,22 @@ const LinkedList = title => {
     };
   }
 
-  function searchAt(key) {
-    let tempHead = this.head;
-    console.log(tempHead);
-    if (tempHead == null) return false;
-    if (tempHead.testfunction == key) return true;
-    return searchAt(tempHead.testfunction, key);
+  //Works to find/return an index key based on value input
+  function searchAt(value) {
+    let searchHead = this.head;
+    let searchCounter = 0;
+    let searchIndex = 0;
+    if (searchHead == null) console.log('The list is empty');
+    while (searchHead !== null) {
+      if (searchHead.testfunction === value) {
+        return searchIndex;
+      };
+      console.log(searchCounter);
+      searchCounter = searchIndex;
+      searchCounter++;
+      searchHead = searchHead.testFunctionTwo;
+    };
+    return searchIndex;
   }
 
   function pop() {
