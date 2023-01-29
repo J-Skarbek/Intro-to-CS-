@@ -56,6 +56,9 @@ const LinkedList = title => {
       sizeCounter = sizeCounter.testFunctionTwo;
     };
     console.log(`The length of the linked list is ${this.length}`);
+    let listSize = this.length;
+    this.length = 0;
+    return listSize;
   }
 
   function indexAt(index) {
@@ -93,13 +96,18 @@ const LinkedList = title => {
 
   function contains(value) {
     let searchNode = this.head;
+    let listLength = this.size();
+    let nodeCounter = 0;
     if (searchNode == null) console.log('There aren\'t any nodes to search.');
     while (searchNode !== null) {
       if (searchNode.testfunction === value) {
         console.log(`Found a match, located ${searchNode.testfunction}`);
+      } else {
+        nodeCounter++;
       };
     searchNode = searchNode.testFunctionTwo;
     };
+    if (nodeCounter === listLength) console.log(`Sorry, could not match ${value} in the linked list.`);
   }
 
   return {
