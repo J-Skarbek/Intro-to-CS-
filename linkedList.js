@@ -41,13 +41,13 @@ const LinkedList = title => {
   }
 
   function getTheTail() {
-    if (this.head == null) console.log('There is no head/nothing in list.');
     let tailFinder = this.head;
+    if (tailFinder == null) console.log('There is no head/nothing in list.');
     while (tailFinder != null) {
+      console.log(`pre-operation value ${tailFinder.testfunction}`);
       tailFinder = tailFinder.testFunctionTwo;
-      console.log(tailFinder)
-    }
-    //  console.log(tailFinder.testfunction);
+      if (tailFinder.testFunctionTwo == null) console.log(`Name: ${tailFinder.testfunction}; Object Return: ${tailFinder}`);
+    };
   }
 
  function size() {
