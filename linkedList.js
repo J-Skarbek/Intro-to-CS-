@@ -28,7 +28,7 @@ const LinkedList = title => {
   }
 
   //Traverses the linked list and console log's the found values of each item 
-  function find() {
+  function traverse() {
     let n = this.head;
     while (n != null) {
       console.log(`Linked List Item: ${n.testfunction}`);
@@ -44,9 +44,8 @@ const LinkedList = title => {
     let tailFinder = this.head;
     if (tailFinder == null) console.log('There is no head/nothing in list.');
     while (tailFinder != null) {
-      console.log(`pre-operation value ${tailFinder.testfunction}`);
       tailFinder = tailFinder.testFunctionTwo;
-      if (tailFinder.testFunctionTwo == null) console.log(`Name: ${tailFinder.testfunction}; Object Return: ${tailFinder}`);
+      if (tailFinder.testFunctionTwo == null) console.log(`Name: ${tailFinder.testfunction}`);
     };
   }
 
@@ -59,16 +58,38 @@ const LinkedList = title => {
     console.log(`The length of the linked list is ${this.length}`);
   }
 
+  function indexAt(index) {
+    let currentNode = this.head;
+    let count = 0;
+    while (currentNode !== null) {
+      if (count === index) {
+        return currentNode.testfunction;
+      }
+      count++;
+      currentNode = currentNode.testFunctionTwo;
+    };
+  }
+
+  function searchAt(key) {
+    let tempHead = this.head;
+    console.log(tempHead);
+    if (tempHead == null) return false;
+    if (tempHead.testfunction == key) return true;
+    return searchAt(tempHead.testfunction, key);
+  }
+
   return {
     head,
     sampleMethod,
     append,
     prepend,
     size,
-    find,
+    traverse,
     length,
     getTheHead,
     getTheTail,
+    searchAt,
+    indexAt,
   }
 }
 
