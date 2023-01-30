@@ -126,6 +126,18 @@ const LinkedList = title => {
     if (nodeCounter === listLength) console.log(`Sorry, could not match ${value} in the linked list.`);
   }
 
+  function toString() {
+    let n = this.head;
+    while (n != null) {
+      let x = n;
+      n = n.testFunctionTwo;
+      //Testing the following console log via an alert to confirm it will print out each value in the linked
+      //list; however, using a general return statement in the while loop kills the loop after the zero-index item
+      alert(`${x.value()}`);
+    };
+    if (n === null) alert(null);
+  }
+
   return {
     head,
     sampleMethod,
@@ -140,6 +152,7 @@ const LinkedList = title => {
     indexAt,
     pop,
     contains,
+    toString,
   }
 }
 
