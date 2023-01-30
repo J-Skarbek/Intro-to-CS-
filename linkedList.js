@@ -138,6 +138,39 @@ const LinkedList = title => {
     if (n === null) console.log(null);
   }
 
+  // function insertAfter(previousNode, newNode) {
+  //   if (previousNode === null) return console.log('The previous node cannot be null.')
+  //   console.log(typeof previousNode)
+  //   let insertNode = Node(newNode);
+  //   newNode.testFunctionTwo = previousNode.testFunctionTwo;
+  //   previousNode.testFunctionTwo = newNode;
+  //   return insertNode;
+  // }
+
+  //function to create/return a node
+  // function getNode(node) {
+  //   let newNode = Node(node);
+  //   return newNode;
+  // }
+
+  // function insertAfter(headNode, position, newNode) {
+  //   let headNodeVal = headNode;
+  //   if (position < 1) console.log('Invalid position value.');
+  //   if (position === 1) {
+  //     let newNode2 = Node(newNode);
+  //     newNode2.testFunctionTwo = headNode;
+  //     headNodeVal = newNode2;
+  //   } else {
+  //     while (postiion-- !== 0) {
+  //       if (position == 1) {
+  //         newNode2 = getNode(newNode);
+  //         newNode2.testFunctionTwo = headNodeVal.testFunctionTwo;
+
+  //       }
+  //     }
+  //   }
+  // }
+
   return {
     head,
     sampleMethod,
@@ -153,6 +186,7 @@ const LinkedList = title => {
     pop,
     contains,
     toString,
+    insertAfter,
   }
 }
 
