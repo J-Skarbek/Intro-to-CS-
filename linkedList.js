@@ -20,7 +20,7 @@ const LinkedList = title => {
     if (this.head == null) this.head = Node(newNode, this.head);
     let node = Node(newNode, null);
     let tail = this.head;
-    while (tail.testFunctionTwo != null) {
+    while (tail.testFunctionTwo !== null) {
       tail = tail.testFunctionTwo;
       console.log(tail);
     };    
@@ -62,7 +62,7 @@ const LinkedList = title => {
   }
 
   //Works to find/return a value in the list based on an index key
-  function indexAt(index) {
+  function searchAt(index) {
     let currentNode = this.head;
     let count = 0;
     while (currentNode !== null) {
@@ -75,19 +75,23 @@ const LinkedList = title => {
   }
 
  //Works to find/return an index key based on value input
-  function searchAt(value) {
+  function indexAt(value) {
     let searchHead = this.head;
     // let numberOfNodes = this.size();
+    // console.log(numberOfNodes);
     let searchIndex = 0;
     // let searchValue = 0;
-    if (searchHead == null) console.log('The list is empty');
-    while (searchHead !== null) {
+    if (searchHead == null) return console.log('The list is empty');
+    // if (value >= numberOfNodes) return console.log('This value doesn\'t exist in the list');
+    while (searchHead !== null ) {
+
       if (searchHead.testfunction === value) {
         return searchIndex;
       };
       // searchValue = searchIndex++;
       searchIndex++;
       searchHead = searchHead.testFunctionTwo;
+      console.log(searchIndex)
     };
     // if (numberOfNodes === searchIndex) console.log('no more nodes');
     return searchIndex;

@@ -6,5 +6,5 @@ list.prepend(2);
 list.prepend(3);
 list.prepend(4);
 list.prepend(5);
-// list.prepend('cats');
-// list.prepend('ducks');
+list.prepend('cats');
+list.prepend('ducks');
