@@ -141,35 +141,50 @@ const LinkedList = title => {
   // function insertAfter(previousNode, newNode) {
   //   if (previousNode === null) return console.log('The previous node cannot be null.')
   //   console.log(typeof previousNode)
-  //   let insertNode = Node(newNode);
+  //   let insertNode = Node(newNode, previousNode);
   //   newNode.testFunctionTwo = previousNode.testFunctionTwo;
   //   previousNode.testFunctionTwo = newNode;
   //   return insertNode;
   // }
 
-  //function to create/return a node
-  // function getNode(node) {
-  //   let newNode = Node(node);
-  //   return newNode;
-  // }
+  // function to get a node from the linked list based on index position -- 
+  // will aide in insertAt() and deleteAt() methods
+  function getNodeAt(index) {
+    let counter = 0;
+    let node = this.head;
+    while (node !== null) {
+      if (counter === index) {
+        return node;
+      }
+      counter++;
+      node = node.testFunctionTwo;
+    }
+    return null;
+  }
 
-  // function insertAfter(headNode, position, newNode) {
-  //   let headNodeVal = headNode;
-  //   if (position < 1) console.log('Invalid position value.');
-  //   if (position === 1) {
-  //     let newNode2 = Node(newNode);
-  //     newNode2.testFunctionTwo = headNode;
-  //     headNodeVal = newNode2;
-  //   } else {
-  //     while (postiion-- !== 0) {
-  //       if (position == 1) {
-  //         newNode2 = getNode(newNode);
-  //         newNode2.testFunctionTwo = headNodeVal.testFunctionTwo;
+  function insertAfter(newNode, index) {
+    //if the list is empty...
+    // if (this.head !== null) {
+    //   let insertNode = Node(newNode);
+    //   this.head = insertNode;
+    //   return;
+    // }
+    //if the insert node is getting prepended to the list...
+    // if (index === 0) {
+    //   let insertNode = Node(newNode, this.head);
+    //   this.head = insertNode;
+    //   return;
+    // }
+    //use the getAt() helper to find the previous node...
+    const previousNode = this.getNodeAt(index - 1);
+    let insertNode = Node(newNode);
+    console.log(insertNode)
+    insertNode.testFunctionTwo = previousNode.testFunctionTwo;
+    previousNode.testFunctionTwo = insertNode;
+    // return this.head;
+  }
 
-  //       }
-  //     }
-  //   }
-  // }
+  
 
   return {
     head,
@@ -187,6 +202,7 @@ const LinkedList = title => {
     contains,
     toString,
     insertAfter,
+    getNodeAt,
   }
 }
 
