@@ -133,9 +133,9 @@ const LinkedList = title => {
       n = n.testFunctionTwo;
       //Testing the following console log via an alert to confirm it will print out each value in the linked
       //list; however, using a general return statement in the while loop kills the loop after the zero-index item
-      alert(`${x.value()}`);
+      console.log(`${x.value()}`);
     };
-    if (n === null) alert(null);
+    if (n === null) console.log(null);
   }
 
   return {
