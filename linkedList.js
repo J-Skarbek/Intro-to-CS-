@@ -191,6 +191,10 @@ const LinkedList = title => {
     previous.testFunctionTwo = previous.testFunctionTwo.testFunctionTwo;
   }
 
+  function deleteList() {
+    this.head = null;
+  }
+
   return {
     head,
     sampleMethod,
@@ -209,6 +213,7 @@ const LinkedList = title => {
     insertAfter,
     getNodeAt,
     removeAt,
+    deleteList,
   }
 }
 
