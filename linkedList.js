@@ -169,14 +169,45 @@ const LinkedList = title => {
       return;
     }
     //use the getAt() helper to find the previous node...
-    console.log(this.size())
     const previousNode = this.getNodeAt(index - 1);
     let insertNode = Node(newNode);
-    console.log(insertNode)
     insertNode.testFunctionTwo = previousNode.testFunctionTwo;
     previousNode.testFunctionTwo = insertNode;
     // return this.head;
   }
+
+  function removeAt(index) {
+    if (this.head === null) return console.log('This list is already empty.');
+
+    //delete the node from the front of the list
+    if (index === 0) {
+      this.head = this.head.testFunctionTwo;
+      return;
+    }
+
+    //elese, use getAt() to find the previous node, then delete the index node
+    const previous = this.getAt(index - 1);
+    if (previous === null || previous.testFunctionTwo === null) return console.log('the previous node is null.');
+    previous.testFunctionTwo = previous.testFunctionTwo.testFunctionTwo;
+  }
+
+  // function removeAt(index) {
+  //   //Check to see if the list is empty
+  //   if (this.head === null) return console.log('This list is already empty.');
+
+  //   //delete the first node in the list
+  //   this.head = this.head.testFunctionTwo;
+
+  //   //delete the last node in the list
+  //   let previous = this.head;
+  //   let tail = this.head.testFunctionTwo;
+  //   while(tail.testFunctionTwo !== null) {
+  //     previous = tail;
+  //     tail = tail.testFunctionTwo;
+  //   }
+  //   previous.testFunctionTwo = null;
+
+  // }
 
   return {
     head,
@@ -195,6 +226,7 @@ const LinkedList = title => {
     toString,
     insertAfter,
     getNodeAt,
+    removeAt,
   }
 }
 
