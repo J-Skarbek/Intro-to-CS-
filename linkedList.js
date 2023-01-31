@@ -186,28 +186,10 @@ const LinkedList = title => {
     }
 
     //elese, use getAt() to find the previous node, then delete the index node
-    const previous = this.getAt(index - 1);
+    const previous = this.getNodeAt(index - 1);
     if (previous === null || previous.testFunctionTwo === null) return console.log('the previous node is null.');
     previous.testFunctionTwo = previous.testFunctionTwo.testFunctionTwo;
   }
-
-  // function removeAt(index) {
-  //   //Check to see if the list is empty
-  //   if (this.head === null) return console.log('This list is already empty.');
-
-  //   //delete the first node in the list
-  //   this.head = this.head.testFunctionTwo;
-
-  //   //delete the last node in the list
-  //   let previous = this.head;
-  //   let tail = this.head.testFunctionTwo;
-  //   while(tail.testFunctionTwo !== null) {
-  //     previous = tail;
-  //     tail = tail.testFunctionTwo;
-  //   }
-  //   previous.testFunctionTwo = null;
-
-  // }
 
   return {
     head,
