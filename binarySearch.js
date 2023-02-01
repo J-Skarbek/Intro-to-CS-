@@ -54,10 +54,6 @@ const BinarySearchTree = (arrayName) => {
     const rightArray = array.slice(_midPoint(array));
     console.log(`left array: ${leftArray} --- right array: ${rightArray}`);
 
-    // return {
-    //   leftArray,
-    //   rightArray,
-    // }
     return _merge(
       mergeSort(leftArray), mergeSort(rightArray)
     );
