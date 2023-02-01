@@ -34,8 +34,10 @@ const Node = (name, data) => {
   }
 }
 
-const BinarySearchTree = (array) => {
+const BinarySearchTree = (arrayName) => {
   // if (typeof array !== []) return new Error('You must pass an array for this function to work.');
+  const array = arrayName;
+
   function _midPoint(array) {
     if (array.length % 2 === 0) {
       const mid = array.length / 2;
@@ -46,34 +48,38 @@ const BinarySearchTree = (array) => {
     };
   }
   
-  function mergeSort() {
-    if (array <= 1) return array;
-    // const midPoint = Math.floor(array.length / 2);
+  function mergeSort(array) {
+    if (array.length <= 1) return array;
     const leftArray = array.slice(0, _midPoint(array));
     const rightArray = array.slice(_midPoint(array));
+    console.log(`left array: ${leftArray} --- right array: ${rightArray}`);
 
+    // return {
+    //   leftArray,
+    //   rightArray,
+    // }
     return _merge(
       mergeSort(leftArray), mergeSort(rightArray)
     );
   }
 
-  function _merge(leftArray, rightArray) {
+  function _merge(lArray, rArray) {
     let resultArray = [];
     let leftIndex = 0;
     let rightIndex = 0;
 
-    while (leftIndex < leftArray.length && rightIndex < rightArray.length) {
-      if (leftArray[leftIndex] < rightArray[rightIndex]) {
-        resultArray.push(leftArray[leftIndex]);
+    while (leftIndex < lArray.length && rightIndex < rArray.length) {
+      if (lArray[leftIndex] < rArray[rightIndex]) {
+        resultArray.push(lArray[leftIndex]);
         leftIndex++;
       } else {
-        resultArray.push(rightArray[rightIndex]);
+        resultArray.push(rArray[rightIndex]);
         rightIndex++;
       }
-    }
+    };
     return resultArray
-            .concat(leftArray.slice(leftIndex))
-            .concat(rightArray.slice(rightIndex));
+            .concat(lArray.slice(leftIndex))
+            .concat(rArray.slice(rightIndex));
 
   }
 
@@ -85,5 +91,8 @@ const BinarySearchTree = (array) => {
   return {
     mergeSort,
     displayArray,
+    _midPoint,
+    _merge,
+    array,
   }
 }
