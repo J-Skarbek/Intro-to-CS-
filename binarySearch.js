@@ -100,14 +100,17 @@ const BinarySearchTree = (arrayName) => {
     return root;
   };
 
-  function buildTree(array, start, end) {
+  function mp() {
+    const result = this._midPoint(this.mergeSort());
+    return result;
+  }
+
+  function buildTree(tArray, start, end) {
     if (start > end) return null;
-    // let sortArr = mergeSort(array);
-    let mid = _midPoint(_createRoot().sortedArray);
-    let node = this._createRoot;
-    // let node = Node(mid);
-    node.left = buildTree(array, start, mid - 1);
-    node.right = buildTree(array, mid + 1, end)
+    let mid = this.midPoint;
+    let node = this.createRoot;
+    node.left = this.buildTree(tArray, start, mid - 1);
+    node.right = this.buildTree(tArray, mid + 1, end)
     return node;
   }
 
@@ -143,5 +146,6 @@ const BinarySearchTree = (arrayName) => {
     runBuildTree,
     displayNodes,
     _mergeSortArray,
+    mp,
   }
 }
