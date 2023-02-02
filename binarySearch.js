@@ -87,7 +87,7 @@ const BinarySearchTree = (arrayName) => {
 
   function _createRoot() {
     const sortedArray = this.mergeSort(this.array);
-    const firstRoot = sortedArray[this._midPoint(sortedArray)];
+    const firstRoot = Node(sortedArray[this._midPoint(sortedArray)]);
     console.table(sortedArray);
     return firstRoot;
   }
