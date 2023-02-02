@@ -77,24 +77,25 @@ const BinarySearchTree = (arrayName) => {
   }
 
   //Performs a mergesort on the input array and is called by the createRoot() method
-  function mergeSort(array) {
+  function _mergeSortArray(array) {
     if (array.length <= 1) return array;
     const leftArray = array.slice(0, _midPoint(array));
     const rightArray = array.slice(_midPoint(array));
     // console.log(`left array: ${leftArray} --- right array: ${rightArray}`);
 
     return _merge(
-      mergeSort(leftArray), mergeSort(rightArray)
+      _mergeSortArray(leftArray), _mergeSortArray(rightArray)
     );
   }
 
-  function _mergeSortArray() {
-    return this.mergeSort(this.array);
+  //Method allows the call of the new, merged/sorted array without a parameter
+  function mergeSort() {
+    return this._mergeSortArray(this.array);
   }
 
   //runs a mergesort and retruns the base root node from the the now-sorted array
   function _createRoot() {
-    const newArray = this._mergeSortArray();
+    const newArray = this.mergeSort();
     const root = Node(newArray[this._midPoint(newArray)]);
     return root;
   };
