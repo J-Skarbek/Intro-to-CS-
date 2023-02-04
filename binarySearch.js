@@ -91,19 +91,9 @@ const BinarySearchTree = (array) => {
 
   let root = null;
 
-  let sortedArray = mergeSort(array).sortedArray;
-  let sortedMidPoint = mergeSort(array).midPoint;
-  let sortedArrayLength = sortedArray.length;
-
-  function decreasingMid() { 
-    sortedMidPoint -= 1;
-    return sortedMidPoint;
-  }
-
-  function increasingMid() {
-    sortedMidPoint += 1; 
-    return sortedMidPoint;
-  }
+  const sortedArray = mergeSort(array).sortedArray;
+  const sortedMidPoint = mergeSort(array).midPoint;
+  const sortedArrayLength = sortedArray.length;
 
   //runs a mergesort and retruns the base root node from the the now-sorted array
   function _createRoot() {
@@ -120,15 +110,7 @@ const BinarySearchTree = (array) => {
     return node;
   }
 
-  // function buildNodes(start, end) {
-  //   if (start > end) return null;
-  //   let node = Node(sortedArray[sortedMidPoint]);
-  //   node.left = buildNodes(start, decreasingMid());
-  //   node.right = buildNodes(increasingMid(), end);
-  //   return node;
-  // }
-
-  // function inOrder(root) {
+   // function inOrder(root) {
   //   const nodes = [];
   //   if (root) {
   //     console.log(`left side: ${root.left} right side: ${root.right}`);
@@ -150,6 +132,8 @@ const BinarySearchTree = (array) => {
 
   // root = _createRoot(sortedArray);
 
+  const output = buildTree(sortedArray, 0, sortedArray.length - 1);
+
   return {
     root,
     array,
@@ -158,11 +142,7 @@ const BinarySearchTree = (array) => {
     sortedMidPoint,
     sortedArrayLength,
     buildTree,
-    buildNodes,
+    output,
     _createRoot,
-    decreasingMid,
-    increasingMid,
-    // displayNodes,
-    // inOrder,
   }
 }
