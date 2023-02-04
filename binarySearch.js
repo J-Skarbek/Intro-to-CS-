@@ -93,7 +93,17 @@ const BinarySearchTree = (array) => {
 
   let sortedArray = mergeSort(array).sortedArray;
   let sortedMidPoint = mergeSort(array).midPoint;
+  let sortedArrayLength = sortedArray.length;
 
+  function decreasingMid() { 
+    sortedMidPoint -= 1;
+    return sortedMidPoint;
+  }
+
+  function increasingMid() {
+    sortedMidPoint += 1; 
+    return sortedMidPoint;
+  }
 
   //runs a mergesort and retruns the base root node from the the now-sorted array
   function _createRoot() {
@@ -101,87 +111,21 @@ const BinarySearchTree = (array) => {
     return this.root;
   }
 
-  //helper function used by the mergeSort() method
-  // function _midPoint(array) {
-  //   if (array.length % 2 === 0) {
-  //     const mid = array.length / 2;
-  //     return mid;
-  //   } else if (array.length % 2 !== 0 ) {
-  //     const mid = Math.floor(array.length / 2 + 1);
-  //     return mid;
-  //   };
-  // }
+  function buildTree(treeArray, start, end) {
+    if (start > end) return null;
+    let mid = Math.floor((start + end) / 2);
+    let node = Node(treeArray[mid]);
+    node.left = buildTree(treeArray, start, mid - 1);
+    node.right = buildTree(treeArray, mid + 1, end);
+    return node;
+  }
 
-  //helper function used by the mergeSort() method
-  // function _merge(lArray, rArray) {
-  //   let resultArray = [];
-  //   let leftIndex = 0;
-  //   let rightIndex = 0;
-
-  //   while (leftIndex < lArray.length && rightIndex < rArray.length) {
-  //     if (lArray[leftIndex] < rArray[rightIndex]) {
-  //       resultArray.push(lArray[leftIndex]);
-  //       leftIndex++;
-  //     } else {
-  //       resultArray.push(rArray[rightIndex]);
-  //       rightIndex++;
-  //     };
-  //   };
-  //   return resultArray
-  //           .concat(lArray.slice(leftIndex))
-  //           .concat(rArray.slice(rightIndex));
-  // }
-
-  // function displayArray() {
-  //   console.log(array.length);
-  //   console.table(array);
-  // }
-
-  //Performs a mergesort on the input array and is called by the createRoot() method
-  // function _mergeSortArray(array) {
-  //   if (array.length <= 1) return array;
-  //   const leftArray = array.slice(0, _midPoint(array));
-  //   const rightArray = array.slice(_midPoint(array));
-  //   // console.log(`left array: ${leftArray} --- right array: ${rightArray}`);
-
-  //   return _merge(
-  //     _mergeSortArray(leftArray), _mergeSortArray(rightArray)
-  //   );
-  // }
-
-  //Method allows the call of the new, merged/sorted array without a parameter
-  // function mergeSort() {
-  //   return this._mergeSortArray(this.array);
-  // }
-
-   //runs a mergesort and retruns the base root node from the the now-sorted array
-  // function _createRoot(sortedArray) {
-  //   if (sortedArray !== null);
-  //   this.root = Node(sortedMidPoint);
-    // return root;
-  // }
-  
-
-  // function buildTree(tArray, start, end) {
+  // function buildNodes(start, end) {
   //   if (start > end) return null;
-  //   let mid = _midPoint(tArray);
-  //   let node2 = this.root;
-  //   node2.left = 111;
-  //   node2.right = 222;
-  //   console.log(node2);
-  //   // node2.left = buildTree(tArray, 0, mid -= 1);
-  //   return node2;
-
-    // console.log(mid);
-  //   let node = Node(tArray[_midPoint(tArray)]);
-  //   console.log(node);
-  //   console.log(mid);
-  //   node.left = buildTree(tArray, start, mid -= 1);
-  //   node.right = buildTree(tArray, mid += 1, end);
-  //   console.log(node);
-  //   console.log(node.right)
-  //   console.log(node.left)
-  //   return node.name;
+  //   let node = Node(sortedArray[sortedMidPoint]);
+  //   node.left = buildNodes(start, decreasingMid());
+  //   node.right = buildNodes(increasingMid(), end);
+  //   return node;
   // }
 
   // function inOrder(root) {
@@ -204,27 +148,21 @@ const BinarySearchTree = (array) => {
   //   console.log(node.left);
   // }
 
-  // function displayArray() {
-  //   console.log(array.length);
-  //   console.table(array);
-  // }
-
-  root = _createRoot(sortedArray);
+  // root = _createRoot(sortedArray);
 
   return {
-    // mergeSort,
-    // displayArray,
-    // _midPoint,
-    // _merge,
-    // _createRoot,
     root,
     array,
     root,
     sortedArray,
     sortedMidPoint,
-    // buildTree,
+    sortedArrayLength,
+    buildTree,
+    buildNodes,
+    _createRoot,
+    decreasingMid,
+    increasingMid,
     // displayNodes,
-    // _mergeSortArray,
     // inOrder,
   }
 }
