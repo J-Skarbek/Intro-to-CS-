@@ -101,6 +101,12 @@ const BinarySearchTree = (array) => {
     return this.root;
   }
 
+  function find(node) {
+    const searchTree = preOrder(output);;
+    (node === searchTree) ?  console.log(`Found a match for ${node}`) : console.log(`Found a match for ${node}`);
+    return searchTree;
+  }
+
   function buildTree(treeArray, start, end) {
     if (start > end) return null;
     let mid = Math.floor((start + end) / 2);
@@ -110,29 +116,15 @@ const BinarySearchTree = (array) => {
     return node;
   }
 
-   // function inOrder(root) {
-  //   const nodes = [];
-  //   if (root) {
-  //     console.log(`left side: ${root.left} right side: ${root.right}`);
-  //     inOrder(root.left);
-  //     nodes.push(root.val);
-  //     inOrder(root.right)
-  //   }
-  //   return nodes
-  // }
-
-  // function displayNodes(node) {
-  //   if (node === null) return;
-  //   console.log(node);
-  //   displayNodes(node.left);
-  //   console.log(node.left);
-  //   displayNodes(node.right);
-  //   console.log(node.left);
-  // }
-
-  // root = _createRoot(sortedArray);
+  function preOrder(node) {
+    if (node === null) return;
+    preOrder(node.left);
+    preOrder(node.right);
+  }
+  
 
   const output = buildTree(sortedArray, 0, sortedArray.length - 1);
+  const printNodes = preOrder(output);
 
   return {
     root,
@@ -143,6 +135,9 @@ const BinarySearchTree = (array) => {
     sortedArrayLength,
     buildTree,
     output,
+    find,
+    preOrder,
+    printNodes,
     _createRoot,
   }
 }
