@@ -101,10 +101,13 @@ const BinarySearchTree = (array) => {
     return this.root;
   }
 
-  function find(node) {
-    const searchTree = preOrder(output);;
-    (node === searchTree) ?  console.log(`Found a match for ${node}`) : console.log(`Found a match for ${node}`);
-    return searchTree;
+  function find(root, node) {
+    //base case, root is null or node is at the root
+    if (root === null || root.name === node) return root;
+    //the node provided is greater than the root
+    if (root.name < node) return find(root.right, node);
+    //the node provided is less than the root
+    return find(root.left, node);
   }
 
   function buildTree(treeArray, start, end) {
@@ -122,9 +125,8 @@ const BinarySearchTree = (array) => {
     preOrder(node.right);
   }
   
-
-  const output = buildTree(sortedArray, 0, sortedArray.length - 1);
-  const printNodes = preOrder(output);
+    const output = buildTree(sortedArray, 0, sortedArray.length - 1);
+  // const printNodes = preOrder(output);
 
   return {
     root,
@@ -137,7 +139,7 @@ const BinarySearchTree = (array) => {
     output,
     find,
     preOrder,
-    printNodes,
+    // printNodes,
     _createRoot,
   }
 }
