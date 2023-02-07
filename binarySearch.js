@@ -86,7 +86,7 @@ const mergeSort = array => {
   };
 }
 
-const BinarySearchTree = (array) => {
+const BinarySearchTree = array => {
   // if (typeof array !== []) return new Error('You must pass an array for this function to work.');
 
   let root = null;
@@ -110,6 +110,21 @@ const BinarySearchTree = (array) => {
     return find(root.left, node);
   }
 
+  function insert(root, node) {
+    if (root === null) {
+      //if the root doesn't exist create a new root
+      const newRoot = Node(node);
+      return newRoot;
+    }
+    //otherwise recuse the BST
+    if (node < root.name) {
+      root.left = insert(root.left, node);
+    } else if (node > root.name) {
+      root.name = insert(root.right, node);
+    }
+    return root;
+  }
+ 
   function buildTree(treeArray, start, end) {
     if (start > end) return null;
     let mid = Math.floor((start + end) / 2);
@@ -126,6 +141,7 @@ const BinarySearchTree = (array) => {
   }
   
     const output = buildTree(sortedArray, 0, sortedArray.length - 1);
+    
   // const printNodes = preOrder(output);
 
   return {
@@ -138,6 +154,7 @@ const BinarySearchTree = (array) => {
     buildTree,
     output,
     find,
+    insert,
     preOrder,
     // printNodes,
     _createRoot,
